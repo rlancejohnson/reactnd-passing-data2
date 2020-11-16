@@ -8,12 +8,12 @@ export default class MoviesLikesList extends Component {
         return (
             <div>
                 {Object.values(movies).map(movie => (
-                    <MovieLikes movie={movie} users={Object.values(users).filter(user => {
-                        let likedProfile = profiles.find(profile => 
-                            profile.userID === user.id && profile.favoriteMovieID === movie.id    
+                    <MovieLikes key={movie.id} movie={movie} users={Object.values(users).filter(user => {
+                        let profile = profiles.find(profile => 
+                            Number(profile.userID) === user.id && Number(profile.favoriteMovieID) === movie.id    
                         )
 
-                        return user.id === likedProfile.userID
+                        return user.id === Number(profile ? profile.userID : 0)
                     })}/>
                 ))}
             </div>

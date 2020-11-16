@@ -10,11 +10,10 @@ export default class MovieLikes extends Component {
                 <p>Liked By:</p>
                 <ul>
                     {users.map(user => (
-                        <li>{user.name}</li>
+                        <li key={user.name}>{user.name}</li>
                     ))}
                 </ul>
             </div>
-            
         )
     }
 }
